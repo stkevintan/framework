@@ -1,4 +1,4 @@
 $(() => {
-    console.log('start');
-    document.write('Heeeeee');
+    console.log('=w=');
+    console.log('hello world');
 });

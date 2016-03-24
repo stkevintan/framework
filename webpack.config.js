@@ -1,21 +1,16 @@
+'use strict'
 const webpack = require('webpack');
 const path = require('path');
-//const CopyWebpackPlugin = require('copy-webpack-plugin');
-//const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
     entry:{
         vendor:["jquery"],//基础库
-        app:"./src/scripts/entry.js"
+        app:["./src/scripts/entry.js"]
     },
     output:{
-        path:path.resolve('dist'),
+        path:path.resolve('dist/assets/js/'),
         filename:"bundle.js",
-        publicPath:''
-    },
-    resolve:{
-        root:[
-            path.resolve('src')
-        ]
+        publicPath:'/assets/js/'
     },
     module:{
         loaders:[
@@ -34,6 +29,11 @@ module.exports = {
     },
     plugins:[
         new webpack.BannerPlugin(`This file is created by Kevin Tan.`),
+        //delete js files
+        new CleanWebpackPlugin(['dist/assets/js'],{
+          verbose:true,
+          dry:true
+        }),
         new webpack.optimize.CommonsChunkPlugin({
             name:'vendor',
             filename:'vendor.bundle.js',
@@ -53,7 +53,7 @@ module.exports = {
         //new HtmlWebpackPlugin({
         //    title:'framework'
         //}),
-        new webpack.NoErrorsPlugin(),
+        //new webpack.NoErrorsPlugin(),
         new webpack.HotModuleReplacementPlugin()
     ]
 }
