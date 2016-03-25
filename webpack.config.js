@@ -4,7 +4,7 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
     entry:{
-        vendor:["jquery"],//基础库
+        vendor:["jquery",'bootstrap-loader'],//基础库
         app:["./src/scripts/entry.js"]
     },
     output:{
@@ -21,9 +21,15 @@ module.exports = {
                 query: {
                     presets: ['es2015']
                 }
-            }
+            },
+            //load icon-font
+            {test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,loader: 'url?limit=10000&mimetype=application/font-woff'},
+            {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'},
+            {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file'},
+            {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml'},
+            //{test: /bootstrap-sass\/assets\/javascripts\//, loader: 'imports?jQuery=jquery' }
             //{test:/\.(css|sass|scss)$/,loader:"style!css!sass"},
-            //{test:/\.(png|jpg)$/,loader:"url-loader?limit=10000&name=[name].[ext]"},
+            //{test:/\.(png|jvendorpg)$/,loader:"url-loader?limit=10000&name=[name].[ext]"},
             //{test:/\.jade$/,loader:"jade"}
         ]
     },
@@ -32,7 +38,7 @@ module.exports = {
         //delete js files
         new CleanWebpackPlugin(['dist/assets/js'],{
           verbose:true,
-          dry:true
+          dry:false
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name:'vendor',
@@ -48,7 +54,8 @@ module.exports = {
             PRODUCTION:false
         }),
         new webpack.ProvidePlugin({
-            $:'jquery'
+            $:'jquery',
+            jQuery:'jquery'
         }),
         //new HtmlWebpackPlugin({
         //    title:'framework'

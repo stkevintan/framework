@@ -30,9 +30,19 @@
     "imagemin-pngquant": "^4.2.2",
     "gulp-imagemin": "^2.4.0",
     "imagemin": "^4.0.0",
-    "opn": "^4.0.1"
+    "opn": "^4.0.1",
+    "css-loader": "^0.23.1",
+    "url-loader": "^0.5.7",
+    "file-loader": "^0.8.5",
+    "resolve-url-loader": "^1.4.3",
+    "style-loader": "^0.13.1",
+    "bootstrap-loader": "^1.0.10",
+    "sass-loader": "^3.2.0",
+    "import-loader": "^0.0.1",
+    "extract-text-webpack-plugin": "^1.0.1"
   },
   "dependencies": {
-    "jquery": "^2.2.2"
+    "jquery": "^2.2.2",
+    "bootstrap-sass": "^3.3.6"
   }
 }

@@ -3,16 +3,31 @@
 doctype html
 html(lang="zh-cn")
     head
+        meta(charset="utf-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
         title= pageTitle
         link(rel='stylesheet' href='/assets/css/styles.css')
     body: .contanier
         h3 上传组件demo
         .upload
           .drop-zone
-            input(type='file')
+            input(type='file' multiple='multiple')
             |拖动文件到此区域以上传
           .preview-zone
           .submit-zone
-            button(type='button') 上传文件
+            button.btn.btn-success(type='button' data-toggle="modal" data-target="#myModal") 上传文件
+        #myModal.modal.fade
+              .modal-dialog
+                .modal-content
+                  .modal-header
+                    button.close(type="button" data-dismiss="modal"): span &times;
+                    h4.modal-title#myModalLabel Modal title
+                  .modal-body ...
+                  .modal-footer
+                    button.btn.btn-default(type='button' data-dismiss="modal") Close
+                    button.btn.btn-primary
+                      span.glyphicon.glyphicon-star
+                      |Save changes
         script(src='/assets/js/vendor.bundle.js')
         script(src='/assets/js/bundle.js')

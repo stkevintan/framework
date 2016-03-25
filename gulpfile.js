@@ -104,7 +104,7 @@ gulp.task('watch', ['templates', 'styles' ,'images' , 'fonts', 'server:gulp', 's
     gulp.watch(PATHS.styles, ['styles']);
     gulp.watch(PATHS.templates, ['templates']);
     opn(`http://${HOST}:${PORT}`,{
-      //app:'firefox'
+      app:'firefox'
     }).then(() => {
         gutil.log('browser has opened');
     });

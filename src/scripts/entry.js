@@ -1,3 +1,4 @@
+
 function DragUpload($elem){
   this.$elem = $elem;
   this.$preview = $('.preview-zone',$elem);
@@ -12,6 +13,7 @@ function DragUpload($elem){
   this.$fileInput.on('change',()=>{
     this.onChnage(this.$fileInput[0].files);
   });
+  this.$submit = $('.submit-zone button',$elem);
 }
 DragUpload.prototype = {
   constructor:DragUpload,
