@@ -19,8 +19,8 @@ let imagemin = require('gulp-imagemin');
 let pngquant = require('imagemin-pngquant');
 //define constraints
 const DEBUG = true;
-const HOST = '0.0.0.0';
-const PORT = 8080;
+const HOST = 'localhost';
+const PORT = 8083;
 const BACKEND_PORT = PORT+1;
 const PATHS = {
     scripts: 'src/scripts/**/*.(js|jsx)',
